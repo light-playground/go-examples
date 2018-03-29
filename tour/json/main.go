@@ -8,6 +8,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"path/filepath"
 	"time"
 )
 
@@ -18,7 +19,11 @@ type Lang struct {
 }
 
 func parse(f func(lang Lang)) {
-	input, err := os.Open("D:\\go\\src\\test\\tour\\json\\lang.json")
+	path, err := filepath.Abs("./tour/json/lang.json")
+	if err != nil {
+		log.Fatal(err)
+	}
+	input, err := os.Open(path)
 	if err != nil {
 		log.Fatal(err)
 	}
