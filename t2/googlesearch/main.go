@@ -1,10 +1,10 @@
 package main
 
 import (
-	"time"
-	"math/rand"
 	"fmt"
+	"math/rand"
 	"strings"
+	"time"
 )
 
 type Result struct {
@@ -95,7 +95,7 @@ func GoogleV1WithTimeout(query string) (results []Result) {
 	return
 }
 
-func GoogleV2(query string) (results []Result)  {
+func GoogleV2(query string) (results []Result) {
 	c := make(chan Result)
 
 	go func() {
